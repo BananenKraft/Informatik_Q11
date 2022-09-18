@@ -2,23 +2,21 @@ import javax.lang.model.element.Element;
 
 class MyListArray {
     
-    private Human[] queue;
-    private int count;
+    public Human[] queue;
+    public int count;
 
     public MyListArray() {
         queue = new Human[5];
         count = 0;
-        push(new Human("Mika", 3));
-        System.out.println(queue);
     }
 
-    public void push(Human humanToAdd) {
+    public void push(Human newhuman) {
         if (count>=queue.length){
             enlargen(1);
         }
         else {
-            queue[count] = humanToAdd;
-            count++;}
+            queue[count] = newhuman;
+            this.count++;}
         }
 
     public void enlargen(int added_size){
@@ -32,6 +30,12 @@ class MyListArray {
     public void pop(){
         for (int i = 1;i<=count;i++){
             queue[i-1] = queue[i];
+        }
+        count--;
+    }
+    public void displayQueue(){
+        for (int i = 0;i<count;i++) {
+            System.out.println(queue[i].age + " " + queue[i].name);
         }
     }
 }     
