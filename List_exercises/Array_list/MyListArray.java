@@ -59,12 +59,20 @@ class MyListArray {
         }
         return queue[index];
     }
-    /*public int searchHuman(Human humanToFind){
-        for (Human human : queue) {
-            if (human.equals(humanToFind)){
-                
+    public int searchHuman(Human humanToFind){
+        for (int i = 0;i<count;i++) {
+            if (queue[i].equals(humanToFind)){
+                return i;
             }
         }
-    }*/
+        return -1;
+    }
+    public boolean contains(Human human) {
+        for (Human waiter : queue){
+            if (human.equals(waiter)) {
+                return true;
+            }}
+        return false;
+    }
 }     
   
