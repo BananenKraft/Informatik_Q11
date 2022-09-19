@@ -5,5 +5,13 @@ class Human {
         this.name = name;
         this.age = age;
     }
+    public boolean equals(Human human) {
+        if (human == this){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
     

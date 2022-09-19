@@ -38,5 +38,33 @@ class MyListArray {
             System.out.println(queue[i].age + " " + queue[i].name);
         }
     }
+    
+    public Human humatAtIndex(int index, Boolean print) {
+        String[] return_info = new String[2];
+        try{
+            return_info[0] = String.valueOf(queue[index].age);
+            return_info[1] = queue[index].name;}
+        catch (NullPointerException e) {
+            System.out.println("Cant find that Human!");
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("List too short");
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        if (print) {
+            System.out.println(return_info[0]);
+            System.out.println(return_info[1]);
+        }
+        return queue[index];
+    }
+    /*public int searchHuman(Human humanToFind){
+        for (Human human : queue) {
+            if (human.equals(humanToFind)){
+                
+            }
+        }
+    }*/
 }     
   
