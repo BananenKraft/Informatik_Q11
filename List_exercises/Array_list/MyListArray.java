@@ -35,7 +35,7 @@ class MyListArray {
     }
     public void displayQueue(){
         for (int i = 0;i<count;i++) {
-            System.out.println(queue[i].age + " " + queue[i].name);
+            queue[i].displayInfo();
         }
     }
     
@@ -54,8 +54,7 @@ class MyListArray {
             System.out.println(e);
         }
         if (print) {
-            System.out.println(return_info[0]);
-            System.out.println(return_info[1]);
+            queue[index].displayInfo();
         }
         return queue[index];
     }
@@ -74,5 +73,6 @@ class MyListArray {
             }}
         return false;
     }
+
 }     
   
