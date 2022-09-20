@@ -1,13 +1,13 @@
-import javax.lang.model.element.Element;
+
 
 class MyListArray {
     
-    public Human[] queue;
-    public int count;
+    private Human[] queue;
+    private int count;
 
-    public MyListArray() {
-        queue = new Human[5];
-        count = 0;
+    public MyListArray(int queue_length) {
+        this.queue = new Human[queue_length];
+        this.count = 0;
     }
 
     public void push(Human newhuman) {
@@ -42,8 +42,8 @@ class MyListArray {
     public Human humatAtIndex(int index, Boolean print) {
         String[] return_info = new String[2];
         try{
-            return_info[0] = String.valueOf(queue[index].age);
-            return_info[1] = queue[index].name;}
+            return_info[0] = String.valueOf(queue[index].getAge());
+            return_info[1] = queue[index].getName();}
         catch (NullPointerException e) {
             System.out.println("Cant find that Human!");
         }
@@ -70,9 +70,12 @@ class MyListArray {
         for (Human waiter : queue){
             if (human.equals(waiter)) {
                 return true;
-            }}
+            }
+        }
         return false;
     }
-
+    public Human[] getQueue() {
+        return queue;
+    }
 }     
   

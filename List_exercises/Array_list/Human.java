@@ -1,6 +1,6 @@
 class Human {
-    public String name;
-    public int age;
+    private String name;
+    private int age;
     public Human(String name, int age){
         this.name = name;
         this.age = age;
@@ -19,5 +19,11 @@ class Human {
             return false;
         }
     }
+    public int getAge() {
+        return age;
+    }
+    public String getName() {
+        return name;
+    }
 }
-    
+  
