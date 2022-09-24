@@ -50,10 +50,10 @@ public class MyListArrayTest {
      @Test
      void testhumanAtPosition() {
         Human h = testList.getQueue()[2];
-        Assertions.assertEquals(null, testList.humanAtIndex(5));
-        Assertions.assertEquals(h, testList.humanAtIndex(3));
-        Assertions.assertEquals(null, testList.humanAtIndex(15));
-        Assertions.assertEquals(null, testList.humanAtIndex(-5));
+        Assertions.assertEquals(null, testList.humanAtPosition(5));
+        Assertions.assertEquals(h, testList.humanAtPosition(3));
+        Assertions.assertEquals(null, testList.humanAtPosition(15));
+        Assertions.assertEquals(null, testList.humanAtPosition(-5));
      }
      
      @Test
@@ -83,8 +83,8 @@ public class MyListArrayTest {
      void testRemoveAtPosition(){
         Human h = testList.removeAtPosition(2);
         Assertions.assertEquals("Sarah", h.getName());
-        Assertions.assertEquals(null, testList.humanAtIndex(4));
-        Assertions.assertEquals(null, testList.humanAtIndex(-3));
+        Assertions.assertEquals(null, testList.humanAtPosition(4));
+        Assertions.assertEquals(null, testList.humanAtPosition(-3));
      }
      
      @Test
@@ -94,6 +94,12 @@ public class MyListArrayTest {
         toConcat.push(new Human("Bob", 25));
         testList = (MyListArray) testList.concatenate(toConcat);
         Assertions.assertEquals(6, testList.getCount());
+     }
+     @Test
+     void testinsertAtPosition(){
+         testList.insertAtPosition(new Human("Mika", 15), 2);
+         testList.displayQueue();
+         Assertions.assertEquals("Mika", testList.humanAtPosition(2).getName());
      }
      /*
      @Test

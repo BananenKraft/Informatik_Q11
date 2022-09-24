@@ -42,11 +42,11 @@ class MyListArray {
         }
     }
     
-    public Human humanAtIndex(int index /*, Boolean print*/) {
+    public Human humanAtPosition(int position /*, Boolean print*/) {
         String[] return_info = new String[2];
         try{
-            return_info[0] = String.valueOf(queue[index].getAge());
-            return_info[1] = queue[index].getName();}
+            return_info[0] = String.valueOf(queue[position].getAge());
+            return_info[1] = queue[position].getName();}
         /*
         catch (NullPointerException e) {
             System.out.println("Cant find that Human!");
@@ -60,9 +60,9 @@ class MyListArray {
         }
         /*
         if (print) {
-            queue[index].displayInfo();
+            queue[position].displayInfo();
         }*/
-        return queue[index-1];
+        return queue[position-1];
     }
     public int searchHuman(Human humanToFind){
         for (int i = 0;i<count;i++) {
@@ -99,9 +99,32 @@ class MyListArray {
         count --;
         return return_human;
     }
+    public void insertAtPosition(Human human, int position){
+        for(int i = position;i<this.count;i++){
+                queue[i] = queue[i-1]; }
+        queue[position-1] = human;
+        count++;
+    }
+    
+    public MyListArray sortQueue(MyListArray listToSort) {
+        MyListArray returnList = new MyListArray(listToSort.count);
+        for (int i = 0; i<listToSort.getCount();i++){
+            for (int j = 0;j<returnList.getCount();i++){
+                try{
+                    if (/* compare age */){
+                        continue;
+                    }
+                }
+                catch (IndexOutOfBoundsException e) {
+                    returnList.push(listToSort.getQueue()[i]);
+                }
+            }
+        }
+        return returnList;
+    }
     public MyListArray concatenate(MyListArray second_array){
         MyListArray concat_array = new MyListArray(count+second_array.getCount());
-        for (int i = 0;i<count;i++){
+        for (int i = 0;i<count;i++){ 
             concat_array.push(queue[i]);
         }
         for (int i = 0;i<second_array.getCount();i++){
@@ -109,6 +132,8 @@ class MyListArray {
         }
         return concat_array;
     }
+    
+    
     public Human[] getQueue() {
         return queue;
     }
