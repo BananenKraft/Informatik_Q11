@@ -6,4 +6,7 @@ class juice {
         this.fruit = fruit;
         this.price = price;
     }
+    public void displaySelf(){
+        System.out.println("I am a " + fruit + ".");
+    }
 }
