@@ -13,26 +13,27 @@ class MyListArray {
         if (count>=queue.length){
             enlargen(1);
         }
-        else {
-            queue[count] = newhuman;
-            }
-        this.count++;
+        queue[count] = newhuman;     
+        count++;
         }
-        
 
     public void enlargen(int added_size){
         Human[] large_queue = new Human[queue.length+added_size];
         for (int i = 0;i<queue.length;i++){
             large_queue[i] = queue[i];
         }
-        this.queue = large_queue;
+        queue = large_queue;
     }
 
     public Human pop(){
+        if (count == 0){
+            return null;
+        }
         Human return_human = queue[0];
-        for (int i = 1;i<=count;i++){
+        for (int i = 1;i<count;i++){
             queue[i-1] = queue[i];
         }
+        queue[count-1] = null;
         count--;
         return return_human;
     }
@@ -105,13 +106,13 @@ class MyListArray {
         queue[position-1] = human;
         count++;
     }
-    
+    /* 
     public MyListArray sortQueue(MyListArray listToSort) {
         MyListArray returnList = new MyListArray(listToSort.count);
         for (int i = 0; i<listToSort.getCount();i++){
             for (int j = 0;j<returnList.getCount();i++){
                 try{
-                    if (/* compare age */){
+                    if (compare age){
                         continue;
                     }
                 }
@@ -121,7 +122,8 @@ class MyListArray {
             }
         }
         return returnList;
-    }
+    } */
+    
     public MyListArray concatenate(MyListArray second_array){
         MyListArray concat_array = new MyListArray(count+second_array.getCount());
         for (int i = 0;i<count;i++){ 
