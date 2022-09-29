@@ -12,16 +12,11 @@ class Human {
     public void displayInfo(){
         System.out.println("My name is " + this.name + ", and im " + this.age + " years old!");
     }
-    /* /s */
-    public boolean true_equals(Human human) {
+    
+    public boolean equals(Human human){
         if (human == this){
             return true;
         }
-        else {
-            return false;
-        }
-    }
-    public boolean equals(Human human){
         if (human.getAge() == this.age && human.getName() == this.name) {
             return true;
         }

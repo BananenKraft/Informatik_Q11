@@ -21,11 +21,9 @@ public class MyListArrayTest {
         MyListArray pushTest = new MyListArray(2);
         pushTest.push(new Human("Mike", 15));
         pushTest.push(new Human("Sarah", 27));
-        System.out.println(pushTest.getQueue()[0].getName());
         Assertions.assertEquals("Mike", pushTest.getQueue()[0].getName());
         Assertions.assertEquals("Sarah", pushTest.getQueue()[1].getName());
         pushTest.push(new Human("Balu", 43));
-        System.out.println(pushTest.getCount());
         Assertions.assertEquals(3, pushTest.getCount());
      }
      
@@ -98,13 +96,21 @@ public class MyListArrayTest {
      @Test
      void testinsertAtPosition(){
          testList.insertAtPosition(new Human("Mika", 15), 2);
-         testList.displayQueue();
+         for (int i=0;i<testList.getCount();i++){
+            testList.getQueue()[i].displayInfo();
+         }
          Assertions.assertEquals("Mika", testList.humanAtPosition(2).getName());
      }
-     /*
+     
      @Test
      void testAppendSorted(){
         MyListArray sortedTest = new MyListArray(1);
+        sortedTest.push(new Human("A", 1));
+        sortedTest.push(new Human("B", 4));
+        sortedTest.push(new Human("C", 2));
+        sortedTest.sortQueue(sortedTest);
+        sortedTest.displayQueue();
+        /* 
         sortedTest.appendSorted(new Human("Alice", 25));
         System.out.println();
         sortedTest.appendSorted(new Human("Bob", 34));
@@ -114,6 +120,7 @@ public class MyListArrayTest {
         Assertions.assertEquals("Alice", sortedTest.pop().getName());
         Assertions.assertEquals("Bob", sortedTest.pop().getName());
         Assertions.assertEquals(null, sortedTest.pop());
+        */
      }
-     */
+     
 }

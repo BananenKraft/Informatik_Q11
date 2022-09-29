@@ -100,29 +100,20 @@ class MyListArray {
         count --;
         return return_human;
     }
-    public void insertAtPosition(Human human, int position){
-        for(int i = position;i<this.count;i++){
-                queue[i] = queue[i-1]; }
-        queue[position-1] = human;
-        count++;
+    public void swapHumans(int position1, int position2){
+        int placeholder = position2;
+        queue[position2] = queue[position1];
     }
-    /* 
-    public MyListArray sortQueue(MyListArray listToSort) {
+    
+    public void sortQueue(MyListArray listToSort) {
         MyListArray returnList = new MyListArray(listToSort.count);
         for (int i = 0; i<listToSort.getCount();i++){
             for (int j = 0;j<returnList.getCount();i++){
-                try{
-                    if (compare age){
-                        continue;
-                    }
-                }
-                catch (IndexOutOfBoundsException e) {
-                    returnList.push(listToSort.getQueue()[i]);
+               
                 }
             }
         }
-        return returnList;
-    } */
+    } 
     
     public MyListArray concatenate(MyListArray second_array){
         MyListArray concat_array = new MyListArray(count+second_array.getCount());
@@ -134,8 +125,6 @@ class MyListArray {
         }
         return concat_array;
     }
-    
-    
     public Human[] getQueue() {
         return queue;
     }
